@@ -74,6 +74,10 @@ node outils/construire-index.js  # régénère index.json
 ## Licence
 
 - **Outils** (`outils/`) : MIT — voir [LICENSE](LICENSE).
-- **Données** (`partage/`) : voir **[DONNEES-LICENCE.md](DONNEES-LICENCE.md)**.
-  ⚠️ Le choix de licence des tracés revient à la coordination FR et **reste à
-  arrêter** — ne pas déposer de données avant.
+- **Données** (`partage/`) : **CC-BY 4.0** — voir
+  **[DONNEES-LICENCE.md](DONNEES-LICENCE.md)** (attribution + périmètre exact).
+
+Les fichiers de partage contiennent de la **géométrie** (polygones), des
+déclarations « sans agglo » et un **label de repérage** — jamais des noms de
+commune Waze. Le script applique aux segments des communes **existantes** ; il
+n'en crée aucune, et le label d'un polygone n'a aucun effet sur le nommage.

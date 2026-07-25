@@ -1,42 +1,48 @@
-# Licence des données — À ARRÊTER
+# Licence des données : CC-BY 4.0
 
-⚠️ **Ce point n'est pas tranché.** Ne déposez pas de tracés dans `partage/`
-avant que la coordination FR ait fixé la licence : une fois publiées sous une
-mauvaise licence, les données sont difficiles à reprendre.
+Les fichiers du dossier **`partage/`** sont publiés sous
+**[Creative Commons Attribution 4.0 International (CC-BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr)**.
 
-## Le problème
+> Texte légal complet : <https://creativecommons.org/licenses/by/4.0/legalcode.fr>
 
-Un polygone d'agglomération de ce dépôt est une **création des éditeurs** :
-tracé à la main en s'appuyant sur
+## Attribution
 
-- les **panneaux EB10/EB20** (jeu « signalisation routière VMA » du Ministère
-  de l'Intérieur, **Licence Ouverte 2.0** — permissive) ;
-- les **contours communaux** Admin Express IGN / COG INSEE (Licence Ouverte
-  également) ;
-- l'**imagerie satellite** (Google / Airbus, propriétaire — mais seule la
-  géométrie tracée est conservée, pas l'image) ;
-- le **jugement de l'éditeur**.
+En cas de réutilisation, créditer :
 
-Ces tracés servent ensuite à écrire des noms de ville dans **Waze**. La
-question — comme pour toute donnée géographique communautaire — est de savoir
-sous quelle licence ce dépôt les redistribue.
+> Zonage d'agglomération — contributeurs de *WME Agglo Naming*
+> (https://github.com/DrSlump34/WME-Agglo-Naming-Partage), CC-BY 4.0.
 
-## Options à considérer
+## Ce que ces données sont — et ne sont pas
 
-| Licence | Idée | À vérifier |
-|---|---|---|
-| **CC0 / domaine public** | Aucune contrainte, réutilisation totale | Accord des contributeurs |
-| **CC-BY 4.0** | Réutilisation libre avec attribution | Attribution collective possible ? |
-| **ODbL** | Compatible OpenStreetMap, « share-alike » | Viralité — voir la note ci-dessous |
+Un fichier de partage contient trois choses, et **seulement** celles-là :
 
-⚠️ **Piège ODbL** : c'est la licence d'OpenStreetMap, virale. Si l'objectif est
-justement de **ne pas** dépendre de données ODbL (comme le script évite les
-contours OSM au profit d'Admin Express), publier ces tracés en ODbL les rendrait
-inutilisables ailleurs sans contamination. À peser.
+1. des **polygones** (géométrie d'agglomération, sommets `[lon, lat]`) tracés à
+   la main par les éditeurs ;
+2. des déclarations **« commune sans agglomération »** (un code INSEE marqué) ;
+3. un **label** par polygone — un simple **repère textuel** pour reconnaître la
+   zone dans l'outil.
 
-## Décision
+⚠️ **Ce ne sont pas des noms de commune Waze, et le partage n'en crée aucun.**
+Le label d'un polygone **n'a aucun effet sur le nommage des segments** : c'est
+une étiquette de repérage. Le script, lui, applique aux segments des communes
+**qui existent déjà** — le nom INSEE pour l'agglomération, une *City* WME
+**choisie dans la liste existante** pour un village rattaché. Il **ne crée
+jamais** de commune. Ce dépôt ne redistribue donc aucune donnée de nommage
+Waze : uniquement de la géométrie et des repères.
 
-**À prendre par la coordination FR** (idéalement avec l'avis de Sebiseba, auteur
-de Draw Borders France, qui a déjà tranché des questions voisines). Une fois
-choisie, remplacer ce fichier par le texte de la licence retenue et l'annoncer
-dans le README.
+## Pourquoi CC-BY et pas ODbL
+
+Les tracés dérivent de sources **permissives** — panneaux EB10/EB20 (jeu
+« signalisation VMA » de l'État, Licence Ouverte 2.0) et contours communaux
+Admin Express IGN / COG INSEE (Licence Ouverte) — plus le jugement de
+l'éditeur. Aucune donnée **ODbL** en amont. Publier sous ODbL (licence virale
+d'OpenStreetMap) contaminerait toute réutilisation ; **CC-BY** garde ces
+géométries librement réutilisables, avec la seule contrainte d'attribution.
+
+## Sources en amont (pour mémoire)
+
+| Source | Licence |
+|---|---|
+| Panneaux EB10/EB20 (signalisation VMA, DSR) | Licence Ouverte 2.0 |
+| Contours communaux Admin Express IGN + COG INSEE | Licence Ouverte |
+| Imagerie satellite (repère visuel au tracé) | propriétaire — non redistribuée, seule la géométrie tracée est conservée |
