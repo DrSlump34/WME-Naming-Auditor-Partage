@@ -1,0 +1,7 @@
+# Fins de ligne en LF partout : les outils ecrivent index.json en \n et la CI
+# le compare par « git diff ». En CRLF, la comparaison echouerait a tort.
+* text=auto eol=lf
+*.json text eol=lf
+*.js   text eol=lf
+*.yml  text eol=lf
+*.md   text eol=lf

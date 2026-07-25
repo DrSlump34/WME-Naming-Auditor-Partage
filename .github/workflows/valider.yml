@@ -1,0 +1,31 @@
+name: Valider le partage
+
+# Controle le format des fichiers a chaque proposition de modification, pour
+# qu'un fichier casse ne soit jamais fusionne.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'partage/**'
+      - 'outils/**'
+      - 'index.json'
+
+jobs:
+  valider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Valider les fichiers de partage
+        run: node outils/valider.js
+      - name: Verifier que index.json est a jour
+        run: |
+          node outils/construire-index.js
+          if ! git diff --quiet -- index.json; then
+            echo "::error::index.json n'est pas a jour. Lance « node outils/construire-index.js » et committe le resultat."
+            git --no-pager diff -- index.json
+            exit 1
+          fi

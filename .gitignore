@@ -1,0 +1,10 @@
+# Exports bruts du script deposes a la racine pour etre decoupes : ils ne vont
+# pas dans le depot, seuls les partage/dep-*.json y entrent.
+/wme-agglo-naming-partage-*.json
+/*.export.json
+
+# Bazar systeme / editeurs
+.DS_Store
+Thumbs.db
+node_modules/
+*.log

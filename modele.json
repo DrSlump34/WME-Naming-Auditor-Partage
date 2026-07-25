@@ -1,0 +1,29 @@
+{
+  "_comment": "GABARIT — ne pas mettre dans partage/. Copie l'enveloppe exportee par le script. Le champ 'script' DOIT valoir 'wme-agglo-naming', sinon l'import est refuse. 'ring' = anneau [lon,lat] ferme (dernier point = premier), >= 4 sommets. 'rattache' true => ville 'Village (Commune)'. Interdit ici : payload.traites (personnel).",
+  "format": "wme-userscript-prefs/1",
+  "script": "wme-agglo-naming",
+  "scriptName": "WME Agglo Naming",
+  "schema": 1,
+  "savedAt": "2026-07-25T12:00:00.000Z",
+  "payload": {
+    "agglos": {
+      "11069": [
+        {
+          "id": "a-exemple",
+          "label": "Carcassonne",
+          "rattache": false,
+          "ring": [
+            [2.330, 43.205],
+            [2.375, 43.205],
+            [2.375, 43.225],
+            [2.330, 43.225],
+            [2.330, 43.205]
+          ]
+        }
+      ]
+    },
+    "sansAgglo": {
+      "11162": true
+    }
+  }
+}
