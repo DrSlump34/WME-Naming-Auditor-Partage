@@ -3,7 +3,7 @@
 // Node pur, aucune dependance.
 
 const FORMAT = 'wme-userscript-prefs/1';
-const SCRIPT = 'wme-agglo-naming';
+const SCRIPT = 'wme-naming-auditor';
 const SCHEMAS_CONNUS = [1];
 
 // Nom officiel des departements, aligne sur le userscript.

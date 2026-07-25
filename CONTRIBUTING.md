@@ -5,9 +5,9 @@ département sans casser celui des autres.
 
 ## 1. Exporter depuis le script
 
-Dans WME Agglo Naming → **☰ Données** → **Réglages** → **« Sauvegarde &
+Dans WME Naming Auditor → **☰ Données** → **Réglages** → **« Sauvegarde &
 partage »** → **⬇️ Exporter**. Tu obtiens un fichier
-`wme-agglo-naming-partage-AAAA-MM-JJ.json` qui contient **toutes** tes communes,
+`wme-naming-auditor-partage-AAAA-MM-JJ.json` qui contient **toutes** tes communes,
 tous départements confondus, avec :
 
 - `payload.agglos` : tes polygones, par code INSEE ;
@@ -30,7 +30,7 @@ deux (ou trois) premiers caractères du code INSEE :
 L'outil fait le tri pour toi :
 
 ```bash
-node outils/decouper.js  wme-agglo-naming-partage-2026-07-25.json
+node outils/decouper.js  wme-naming-auditor-partage-2026-07-25.json
 ```
 
 Il écrit un `partage/dep-<DEP>.json` par département présent dans ton export,
@@ -51,7 +51,7 @@ en **fusionnant** avec l'existant du dépôt sans écraser les communes déjà l
 
 ## Ce que la vérification exige
 
-- Enveloppe correcte : `format`, `script: "wme-agglo-naming"`, `schema` connu.
+- Enveloppe correcte : `format`, `script: "wme-naming-auditor"`, `schema` connu.
 - Chaque code INSEE du fichier appartient bien au département du nom de fichier.
 - Chaque polygone a un `ring` fermé d'au moins 4 sommets `[lon, lat]`
   plausibles, un `label`, un `rattache` booléen.

@@ -15,7 +15,7 @@ const { FORMAT, SCRIPT, depDeInsee, verifierEnveloppe, DEPARTEMENTS } = require(
 const DOSSIER = path.join(__dirname, '..', 'partage');
 
 function enveloppeVide() {
-  return { format: FORMAT, script: SCRIPT, scriptName: 'WME Agglo Naming', schema: 1,
+  return { format: FORMAT, script: SCRIPT, scriptName: 'WME Naming Auditor', schema: 1,
            savedAt: new Date().toISOString(), payload: { agglos: {}, sansAgglo: {} } };
 }
 

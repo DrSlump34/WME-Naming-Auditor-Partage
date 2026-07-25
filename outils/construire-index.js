@@ -12,7 +12,7 @@ const { DEPARTEMENTS, verifierEnveloppe } = require('./commun');
 
 const RACINE = path.join(__dirname, '..');
 const DOSSIER = path.join(RACINE, 'partage');
-const BASE_RAW = 'https://raw.githubusercontent.com/DrSlump34/WME-Agglo-Naming-Partage/main/partage/';
+const BASE_RAW = 'https://raw.githubusercontent.com/DrSlump34/WME-Naming-Auditor-Partage/main/partage/';
 
 // new Date() est fige a la seule fin d'estampiller l'index : la CI peut le
 // regenerer, seul le contenu des departements est significatif pour un diff.
@@ -37,7 +37,7 @@ function main() {
   }
 
   const index = {
-    depot: 'WME-Agglo-Naming-Partage',
+    depot: 'WME-Naming-Auditor-Partage',
     miseAJour: new Date().toISOString().slice(0, 10),
     nbDepartements: Object.keys(departements).length,
     departements

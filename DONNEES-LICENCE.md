@@ -9,8 +9,8 @@ Les fichiers du dossier **`partage/`** sont publiés sous
 
 En cas de réutilisation, créditer :
 
-> Zonage d'agglomération — contributeurs de *WME Agglo Naming*
-> (https://github.com/DrSlump34/WME-Agglo-Naming-Partage), CC-BY 4.0.
+> Zonage d'agglomération — contributeurs de *WME Naming Auditor*
+> (https://github.com/DrSlump34/WME-Naming-Auditor-Partage), CC-BY 4.0.
 
 ## Ce que ces données sont — et ne sont pas
 

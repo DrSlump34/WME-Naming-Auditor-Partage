@@ -1,8 +1,8 @@
 {
-  "_comment": "GABARIT — ne pas mettre dans partage/. Copie l'enveloppe exportee par le script. Le champ 'script' DOIT valoir 'wme-agglo-naming', sinon l'import est refuse. 'ring' = anneau [lon,lat] ferme (dernier point = premier), >= 4 sommets. 'rattache' true => ville 'Village (Commune)'. Interdit ici : payload.traites (personnel).",
+  "_comment": "GABARIT — ne pas mettre dans partage/. Copie l'enveloppe exportee par le script. Le champ 'script' DOIT valoir 'wme-naming-auditor', sinon l'import est refuse. 'ring' = anneau [lon,lat] ferme (dernier point = premier), >= 4 sommets. 'rattache' true => ville 'Village (Commune)'. Interdit ici : payload.traites (personnel).",
   "format": "wme-userscript-prefs/1",
-  "script": "wme-agglo-naming",
-  "scriptName": "WME Agglo Naming",
+  "script": "wme-naming-auditor",
+  "scriptName": "WME Naming Auditor",
   "schema": 1,
   "savedAt": "2026-07-25T12:00:00.000Z",
   "payload": {

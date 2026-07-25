@@ -1,6 +1,6 @@
-# WME Agglo Naming — partage communautaire
+# WME Naming Auditor — partage communautaire
 
-Zonage d'agglomération partagé pour le userscript **WME Agglo Naming** : les
+Zonage d'agglomération partagé pour le userscript **WME Naming Auditor** : les
 **polygones d'agglomération** tracés par les éditeurs et les communes déclarées
 **« sans agglomération »**, regroupés par département, pour que personne n'ait à
 retracer ce qu'un autre a déjà fait.
@@ -11,7 +11,7 @@ retracer ce qu'un autre a déjà fait.
 
 ## Importer un département dans le script
 
-1. Ouvre WME Agglo Naming → onglet **☰ Données** → **Réglages** → section
+1. Ouvre WME Naming Auditor → onglet **☰ Données** → **Réglages** → section
    **« Sauvegarde & partage »**.
 2. Colle l'URL *raw* du fichier de ton département dans **« Importer depuis une
    URL »**, puis clique **🌐 Importer depuis l'URL**.
@@ -19,7 +19,7 @@ retracer ce qu'un autre a déjà fait.
 L'URL suit toujours ce motif :
 
 ```
-https://raw.githubusercontent.com/DrSlump34/WME-Agglo-Naming-Partage/main/partage/dep-<DEP>.json
+https://raw.githubusercontent.com/DrSlump34/WME-Naming-Auditor-Partage/main/partage/dep-<DEP>.json
 ```
 
 Exemple pour l'Aude : `.../partage/dep-11.json`
@@ -45,8 +45,8 @@ telle quelle — voir [`modele.json`](modele.json) pour le gabarit commenté :
 ```json
 {
   "format": "wme-userscript-prefs/1",
-  "script": "wme-agglo-naming",
-  "scriptName": "WME Agglo Naming",
+  "script": "wme-naming-auditor",
+  "scriptName": "WME Naming Auditor",
   "schema": 1,
   "savedAt": "2026-07-25T12:00:00.000Z",
   "payload": {
