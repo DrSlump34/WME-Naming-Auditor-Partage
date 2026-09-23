@@ -37,9 +37,17 @@ function main() {
     };
   }
 
+  // ⚠️ La date ne bouge QUE si le contenu change. Ecrite a chaque passage, elle
+  //    faisait echouer la verification « index.json est a jour » de la CI tous
+  //    les jours ou la date differait du dernier commit, sans le moindre
+  //    changement de donnees (vecu au premier push, le 23/09/2026).
+  const cheminIndex = path.join(RACINE, 'index.json');
+  let ancien = null;
+  try { ancien = JSON.parse(fs.readFileSync(cheminIndex, 'utf8')); } catch (e) { /* premier index */ }
+  const inchange = ancien && JSON.stringify(ancien.departements) === JSON.stringify(departements);
   const index = {
     depot: 'WME-Naming-Auditor-Partage',
-    miseAJour: new Date().toISOString().slice(0, 10),
+    miseAJour: inchange && ancien.miseAJour ? ancien.miseAJour : new Date().toISOString().slice(0, 10),
     nbDepartements: Object.keys(departements).length,
     departements
   };
