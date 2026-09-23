@@ -11,7 +11,9 @@ partage »** → **⬇️ Exporter**. Tu obtiens un fichier
 tous départements confondus, avec :
 
 - `payload.agglos` : tes polygones, par code INSEE ;
-- `payload.sansAgglo` : tes communes déclarées « sans agglomération ».
+- `payload.sansAgglo` : tes communes déclarées « sans agglomération » ;
+- `payload.hameaux` : tes secteurs de panneaux déclarés **hameau** (ils restent
+  hors agglomération même panneautés), depuis WNA 2.49.03.
 
 Les coches « traité » ne sont **pas** dans l'export : c'est voulu, elles
 restent personnelles.
@@ -38,7 +40,7 @@ en **fusionnant** avec l'existant du dépôt sans écraser les communes déjà l
 (même règle que l'import côté script : on n'ajoute que les absentes).
 
 > Pas envie d'utiliser l'outil ? Tu peux éditer `partage/dep-<DEP>.json` à la
-> main : garde l'enveloppe, ne mets dans `payload.agglos` / `payload.sansAgglo`
+> main : garde l'enveloppe, ne mets dans `payload.agglos` / `payload.sansAgglo` / `payload.hameaux`
 > que des codes INSEE de **ce** département.
 
 ## 3. Ouvrir une pull request

@@ -32,7 +32,8 @@ function main() {
       url: BASE_RAW + f,
       communes: r.communes.length,
       polygones: r.nbAgglos,
-      sansAgglo: r.nbSansAgglo
+      sansAgglo: r.nbSansAgglo,
+      hameaux: r.nbHameaux
     };
   }
 

@@ -62,15 +62,15 @@ function anneauFerme(ring) {
 /**
  * Verifie une enveloppe deja parsee. `depAttendu` (optionnel) : si fourni, tous
  * les codes INSEE doivent appartenir a ce departement.
- * Rend { erreurs: string[], communes: string[], nbAgglos, nbSansAgglo }.
+ * Rend { erreurs: string[], communes: string[], nbAgglos, nbSansAgglo, nbHameaux }.
  */
 function verifierEnveloppe(obj, depAttendu) {
   const err = [];
   const communes = new Set();
-  let nbAgglos = 0, nbSansAgglo = 0;
+  let nbAgglos = 0, nbSansAgglo = 0, nbHameaux = 0;
 
   if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
-    return { erreurs: ['ce n\'est pas un objet JSON'], communes: [], nbAgglos: 0, nbSansAgglo: 0 };
+    return { erreurs: ['ce n\'est pas un objet JSON'], communes: [], nbAgglos: 0, nbSansAgglo: 0, nbHameaux: 0 };
   }
   if (obj.format !== FORMAT) err.push(`format attendu "${FORMAT}", trouve "${obj.format}"`);
   if (obj.script !== SCRIPT) err.push(`script attendu "${SCRIPT}", trouve "${obj.script}" (fichier d'un autre outil ?)`);
@@ -79,7 +79,7 @@ function verifierEnveloppe(obj, depAttendu) {
   const p = obj.payload;
   if (p === null || typeof p !== 'object' || Array.isArray(p)) {
     err.push('payload absent ou invalide');
-    return { erreurs: err, communes: [], nbAgglos: 0, nbSansAgglo: 0 };
+    return { erreurs: err, communes: [], nbAgglos: 0, nbSansAgglo: 0, nbHameaux: 0 };
   }
   if ('traites' in p) err.push('payload.traites present : les coches « traite » sont personnelles et INTERDITES dans le partage');
 
@@ -116,7 +116,22 @@ function verifierEnveloppe(obj, depAttendu) {
     if (v !== true) err.push(`sansAgglo["${code}"] doit valoir true`);
   }
 
-  return { erreurs: err, communes: [...communes], nbAgglos, nbSansAgglo };
+  // Secteurs d'entrees declares HAMEAU (WNA 2.49.03) : le hameau reste hors
+  // agglomeration meme panneaute (vote t411162, wiki « Nommage des segments »
+  // v52). Un point { lon, lat } par secteur ; une liste vide = « tout annule ».
+  const ham = p.hameaux || {};
+  if (typeof ham !== 'object' || Array.isArray(ham)) err.push('payload.hameaux doit etre un objet');
+  else for (const [code, liste] of Object.entries(ham)) {
+    cadre(code, 'hameau');
+    if (!Array.isArray(liste)) { err.push(`hameaux["${code}"] doit etre un tableau`); continue; }
+    liste.forEach((h, i) => {
+      nbHameaux++;
+      if (!h || typeof h !== 'object' || !estCoord([h.lon, h.lat]))
+        err.push(`hameaux["${code}"][${i}] : point { lon, lat } invalide ou hors zone (lat/lon inverses ?)`);
+    });
+  }
+
+  return { erreurs: err, communes: [...communes], nbAgglos, nbSansAgglo, nbHameaux };
 }
 
 module.exports = { FORMAT, SCRIPT, SCHEMAS_CONNUS, DEPARTEMENTS, depDeInsee, verifierEnveloppe };

@@ -1,5 +1,5 @@
 {
-  "_comment": "GABARIT — ne pas mettre dans partage/. Copie l'enveloppe exportee par le script. Le champ 'script' DOIT valoir 'wme-naming-auditor', sinon l'import est refuse. 'ring' = anneau [lon,lat] ferme (dernier point = premier), >= 4 sommets. 'rattache' true => ville 'Village (Commune)'. Interdit ici : payload.traites (personnel).",
+  "_comment": "GABARIT — ne pas mettre dans partage/. Copie l'enveloppe exportee par le script. Le champ 'script' DOIT valoir 'wme-naming-auditor', sinon l'import est refuse. 'ring' = anneau [lon,lat] ferme (dernier point = premier), >= 4 sommets. 'rattache' true => ville 'Village (Commune)'. 'hameaux' : un point {lon,lat} par secteur d'entrees declare hameau (reste hors agglomeration meme panneaute). Interdit ici : payload.traites (personnel).",
   "format": "wme-userscript-prefs/1",
   "script": "wme-naming-auditor",
   "scriptName": "WME Naming Auditor",
@@ -24,6 +24,11 @@
     },
     "sansAgglo": {
       "11162": true
+    },
+    "hameaux": {
+      "11069": [
+        { "lon": 2.402, "lat": 43.198 }
+      ]
     }
   }
 }

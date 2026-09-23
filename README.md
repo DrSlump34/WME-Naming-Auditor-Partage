@@ -51,7 +51,8 @@ telle quelle — voir [`modele.json`](modele.json) pour le gabarit commenté :
   "savedAt": "2026-07-25T12:00:00.000Z",
   "payload": {
     "agglos":   { "<code INSEE>": [ { "id": "...", "label": "...", "rattache": false, "ring": [[lon,lat], …] } ] },
-    "sansAgglo":{ "<code INSEE>": true }
+    "sansAgglo":{ "<code INSEE>": true },
+    "hameaux":  { "<code INSEE>": [ { "lon": 2.40, "lat": 43.19 } ] }
   }
 }
 ```
@@ -61,6 +62,10 @@ telle quelle — voir [`modele.json`](modele.json) pour le gabarit commenté :
 - `rattache` : `true` pour un village rattaché (la ville appliquée devient
   « Village (Commune) »).
 - `label` : simple étiquette de repérage, elle n'entre pas dans l'analyse.
+- `hameaux` : les secteurs de panneaux d'entrée **déclarés hameau** — un point
+  `{ lon, lat }` par secteur. Un hameau ou un lieu-dit reste **hors
+  agglomération, même panneauté** (règle votée en 2026, wiki *Nommage des
+  segments* v52). Une liste vide veut dire « tout annulé » et n'apporte rien.
 - ⚠️ **`payload.traites` est interdit ici** : les coches « traité » sont
   personnelles. La vérification rejette tout fichier qui en contient.
 
